@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dublin-coach-frontend
+  namespace: default
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: "gce"
+spec:
+  tls:
+  - hosts:
+    - www.dublincoachconcept.com
+    secretName: dublincoachconcept-frontend-tls
+  rules:
+  - host: www.dublincoachconcept.com
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: dublin-coach-frontend
+          servicePort: 80

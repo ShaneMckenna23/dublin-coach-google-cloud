@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-01-23T15:29:13Z
+  labels:
+    run: dublin-coach-frontend
+  name: dublin-coach-frontend
+  namespace: default
+  resourceVersion: "4333164"
+  selfLink: /api/v1/namespaces/default/services/dublin-coach-frontend
+  uid: 2a350da0-0052-11e8-8307-42010af00188
+spec:
+  clusterIP: 10.31.245.204
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32058
+    port: 80
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    run: dublin-coach-frontend
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

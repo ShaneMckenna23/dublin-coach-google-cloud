@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"sqlproxy-service-database","namespace":"default"},"spec":{"ports":[{"port":3306,"targetPort":"port-database"}],"selector":{"app":"cloudsqlproxy"}}}
+  creationTimestamp: 2018-01-23T15:32:44Z
+  name: sqlproxy-service-database
+  namespace: default
+  resourceVersion: "9159"
+  selfLink: /api/v1/namespaces/default/services/sqlproxy-service-database
+  uid: a8045d31-0052-11e8-8307-42010af00188
+spec:
+  clusterIP: 10.31.253.215
+  ports:
+  - port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: cloudsqlproxy
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
