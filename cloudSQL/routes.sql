@@ -1,0 +1,1 @@
+INSERT INTO `dublin_coach_db`.`routes` (`id`, `name`) VALUES ('1', 'M7 Express');
