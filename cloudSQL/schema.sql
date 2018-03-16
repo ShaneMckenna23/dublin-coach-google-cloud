@@ -24,7 +24,11 @@ CREATE TABLE `dublin_coach_db`.`stops` (
 
 CREATE TABLE `dublin_coach_db`.`routes` (
   `id` int PRIMARY KEY,
-  `name` varchar(200)
+  `name` varchar(200),
+  `route_detail_id` int,
+  `schedule_id` int,
+  FOREIGN KEY (`route_detail_id`) REFERENCES route_details (id),
+  FOREIGN KEY (`schedule_id`) REFERENCES schedules (id)
 );
 
 CREATE TABLE `dublin_coach_db`.`route_details` (
@@ -32,19 +36,16 @@ CREATE TABLE `dublin_coach_db`.`route_details` (
   `stop_number` int, -- starting from 1
   `stop_id` int,
   `leg_minutes` int, -- minutes from the previous stop to this one (0 for stop_number=1)
-  FOREIGN KEY (id) REFERENCES routes (id),
   FOREIGN KEY (stop_id) REFERENCES stops (id),
   PRIMARY KEY (id, stop_number)
 );
 
 CREATE TABLE `dublin_coach_db`.`schedules`( 
-  `id` int,
+  `id` int PRIMARY KEY,
   `start_time` varchar(8), -- hh:mm:ss
   `end_time` varchar(8),
-  `frequency` varchar(8),
-  FOREIGN KEY (id) REFERENCES routes (id)
+  `frequency` varchar(8)
 );
-
 
 
 -- Query which route goes from B to E
