@@ -20,7 +20,7 @@ Cloud SQL is a fully-managed database service that makes it easy to set up, main
 cloud-sql-proxy uses a service account to access the database. When deployed dublin-coach-backend connects to the database through cloud-sql proxy. When developing locally dublin-coach-backend connects directly to the database, the developers IP must be on a pre-approved list.
 
 
-## Kubernetes
+## Kubernetes Services
 
 ### dublin-coach-frontend
 ### dublin-coach-backend
